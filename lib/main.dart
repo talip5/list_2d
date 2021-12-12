@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
-import 'package:list_2d/student.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
-
+  // This widget is the root of your application.
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
@@ -21,128 +18,188 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  Deneme1 deneme1 = Deneme1.Id();
-  String value = 'value';
-  String appBarTitle = 'GridView';
+  // MyHomePage({Key key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String title = 'GridViewBuilder';
+  var random = new Random();
+  int number0 = 0;
+  int number1 = 0;
+  int number2 = 0;
+  int number3 = 0;
+  int number4 = 0;
+  int number5 = 0;
 
-  Student student7=Student('titleStudent');
-  List<Widget> listWidgetClass = [Deneme1('x', Colors.greenAccent)];
-  List<int> listNo = [1, 2, 3, 4, 5];
+  bool selected0 = true;
+  bool selected1 = true;
+  bool selected2 = true;
+  bool selected3 = true;
+  bool selected4 = true;
+  bool selected5 = true;
 
-  listWidgetClassAdd() {
-    for (int i = 0; i <= 10; i++) {
-      if (i.isEven) {
-        listWidgetClass.add(Deneme1('$i', Colors.deepPurple));
-      } else {
-        listWidgetClass.add(Deneme1('$i', Colors.blue));
-      }
-    }
-  }
+  String label0 = 'Label0';
+  String label1 = 'Label1';
+  String label2 = 'Label2';
+  String label3 = 'Label3';
+  String label4 = 'Label4';
+  String label5 = 'Label5';
 
-  @override
-  void initState() {
-    listWidgetClassAdd();
-    //listWidgetPrint();
-    //listPrint1();
-    // TODO: implement initState
-    super.initState();
-  }
+  bool changed = true;
+  TextStyle textStyle=TextStyle(fontSize: 25.0);
+  Color color1=Colors.lightGreen;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.appBarTitle),
+        title: Text(title),
       ),
-      //body: Deneme(),
-      //body: widgetClass,
-      //body: listWidgetClass[1],
-      body: ListView.builder(
-          itemCount: listNo.length,
-          itemBuilder: (BuildContext context, int index) {
-            //return Text(listWidget.length.toString());
-            return listWidgetClass[index];
-            //return widget35;
-          }),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print('FloatingActionButton');
-          print(widget.deneme1.number);
+      body: Center(
+          child: GridView.builder(
+        primary: false,
+        padding: const EdgeInsets.all(20),
+        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisSpacing: 10, mainAxisSpacing: 10, crossAxisCount: 2),
+        itemCount: 6,
+        itemBuilder: (BuildContext context, int index) {
+          Widget widget;
+          switch (index) {
+            case 0:
+              widget = Container(
+                margin: EdgeInsets.all(10.0),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(primary: color1),
+                  onPressed: () {
+                    setState(() {});
+                    if (selected1 == true) {
+                   number0 = random.nextInt(100);
+                    }
+                    selected1 = false;
+                    changed = !changed;
+                    if (changed == true) {
+                      label0 = 'Label $index';
+                      color1=Colors.lightGreen;
+                    } else {
+                      label0 = number0.toString();
+                      color1=Colors.deepPurpleAccent;
+                    }
+                  },
+                  child: Text(label0,style: textStyle,),
+                ),
+              );
+              break;
+            case 1:
+              widget = Container(
+                margin: EdgeInsets.all(10.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    setState(() {});
+                    if (selected1 == true) {
+                      number1 = random.nextInt(100);
+                    }
+                    selected1 = false;
+                    changed = !changed;
+                    if (changed == true) {
+                      label1 = 'Label $index';
+                    } else {
+                      label1 = number1.toString();
+                    }
+                  },
+                  child: Text(label1,style: textStyle),
+                ),
+              );
+              break;
+            case 2:
+              widget = Container(
+                margin: EdgeInsets.all(10.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    setState(() {});
+                    if (selected2 == true) {
+                      number2 = random.nextInt(100);
+                    }
+                    selected2 = false;
+                    changed = !changed;
+                    if (changed == true) {
+                      label2 = 'Label $index';
+                    } else {
+                      label2 = number2.toString();
+                    }
+                  },
+                  child: Text(label2,style: textStyle),
+                ),
+              );
+              break;
+            case 3:
+              widget = Container(
+                margin: EdgeInsets.all(10.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    setState(() {});
+                    if (selected3 == true) {
+                      number3 = random.nextInt(100);
+                    }
+                    selected3 = false;
+                    changed = !changed;
+                    if (changed == true) {
+                      label3 = 'Label $index';
+                    } else {
+                      label3 = number3.toString();
+                    }
+                  },
+                  child: Text(label3,style: textStyle),
+                ),
+              );
+              break;
+            case 4:
+              widget = Container(
+                margin: EdgeInsets.all(10.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    setState(() {});
+                    if (selected4 == true) {
+                      number4 = random.nextInt(100);
+                    }
+                    selected4 = false;
+                    changed = !changed;
+                    if (changed == true) {
+                      label4 = 'Label $index';
+                    } else {
+                      label4 = number4.toString();
+                    }
+                  },
+                  child: Text(label4,style: textStyle),
+                ),
+              );
+              break;
+            default:
+              widget = Container(
+                margin: EdgeInsets.all(10.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    setState(() {});
+                    if (selected5 == true) {
+                      number5 = random.nextInt(100);
+                    }
+                    selected5 = false;
+                    changed = !changed;
+                    if (changed == true) {
+                      label5 = 'Label $index';
+                    } else {
+                      label5 = number5.toString();
+                    }
+                  },
+                  child: Text(label5,style: textStyle),
+                ),
+              );
+          }
+          return widget;
         },
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
-    );
-  }
-}
-
-class Deneme1 extends StatefulWidget {
-  Student student3=Student('titleStudent');
-  int number = 0;
-  String page5 = 'page5';
-  String label = 'label';
-  Color color = Colors.white30;
-
-  Deneme1(String label, Color color) {
-    this.label = label;
-    this.color = color;
-  }
-
-  Deneme1.Id() {
-    this.label = label;
-    this.number = number;
-  }
-
-  @override
-  State<Deneme1> createState() => _Deneme1State();
-}
-
-class _Deneme1State extends State<Deneme1> {
-  var random = new Random();
-
-  String title = 'title';
-
-  bool changed = true;
-  bool selected = true;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: 100,
-      height: 100,
-      color: Colors.green,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ElevatedButton(
-          style: ElevatedButton.styleFrom(primary: widget.color),
-          onPressed: () {
-            setState(() {
-              // widget.appBarTitle='deneme35';
-            });
-            if (selected == true) {
-              widget.number = random.nextInt(100);
-            }
-            selected = false;
-            changed = !changed;
-            if (changed == true) {
-              title = 'label ${widget.label}';
-            } else {
-              title = widget.number.toString();
-            }
-            setState(() {
-              widget.student3.titleStudent=widget.number.toString();
-              //print(widget.student5.titleStudent=number.toString());
-            });
-          },
-          child: Text(title),
-        ),
-      ),
+      )),
     );
   }
 }
